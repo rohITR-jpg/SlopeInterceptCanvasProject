@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <script data-require="jquery@*" data-semver="3.1.1" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <link data-require="bootstrap-css@*" data-semver="4.0.0-alpha.4" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/css/bootstrap.min.css" />
+  </head>
+
+  <!--set the background color to split screen in 2-->
+  <body style="background: linear-gradient(90deg, rgb(253, 227, 161) 67%, cyan 23%);" >
+
+    <!--Set the title of the entire page-->
+    <h1 style="position:absolute;margin-left: 20vw; margin-top: -25px"> Slope Intercept Equation</h1>
+
+    <!--these are headers to output information on the slope intercept form -->
+    <!--Outputs information on the cyan side of the page-->
+    <h2 style="margin-left: 68vw; margin-top: 20px"> So what is the slope intercept equation?</h2>
+
+    <h7 style="margin-left: 68vw;"> It is an equation that describes a straight line. The equation is:</h7>
+
+    <br></br>
+
+    <h7 style="margin-left: 77vw;"> y = <h7 style = "color:red">m</h7> * x + <h7 style = "color:blue">b</h7></h7>
+
+    <br></br>
+
+    <h7 style="margin-left: 68vw;"> x and y represent the ordered pairs throughout the line</h7>
+
+    
+
+    <h7 style="margin-left: 68vw;"> <h7 style = "color:red">m</h7> - the slope or steepness of a line</h7>
+
+    <h7 style="margin-left: 68vw;"> The greater the value of <h7 style = "color:red">m</h7>, the steeper the line</h7>
+
+    <h7 style="margin-left: 68vw;"> <h7 style = "color:blue">b</h7> - the point where the line crosses the y axis.</h7>
+
+    <br></br>
+
+    <h7 style="margin-left: 68vw;"> Okay, we know what each variable in the equation represents.</h7>
+
+    <h7 style="margin-left: 68vw;">  But how do we draw a line from this?</h7>
+
+    <br></br>
+
+
+    <h7 style="margin-left: 68vw;">  Well, with slope-intercept form, we can pick any x value, 
+      multiply it</h7>
+
+    <h7 style="margin-left: 68vw;">  by the <h7 style = "color:red">slope (m)</h7> and add the <h7 style = "color:blue">y-intercept (b)</h7> to it. The equation is</h7>
+
+    <h7 style="margin-left: 68vw;">  basically the relationship between x and y.</h7>
+
+    <br></br>
+    
+
+    <h7 style="margin-left: 68vw;">  This will give us the y value, so we now have a point (x,y)!</h7>
+
+    <h7 style="margin-left: 68vw;">  repeat this process with different x values to get a set of (x,y).</h7>
+
+
+    <h7 style="margin-left: 68vw;">  coordinates. Now we can draw a line with all of these coordinates!</h7>
+
+    <!--The next 3 lines describe the table of x and y values-->
+    <h7 style="position:absolute; margin-left: -47vw; margin-top: -100px">  Watch the y values change as</h7>
+
+    <h7 style="position:absolute; margin-left: -47vw; margin-top: -80px"> you adjust the <h7 style = "color:red">slope (m)</h7> and the</h7>
+
+    <h7 style="position:absolute; margin-left: -47vw; margin-top: -60px"> <h7 style = "color:blue">y-intercept (b) </h7>!</h7>
+
+    <br></br>
+
+    <h7 style="margin-left: 68vw;">  Try experimenting with the sliders to see how they affect the line!</h7>
+
+      <!--define the border for the table-->
+      <style>
+        table, th, td {
+          border:1px solid black;
+        }
+        </style>
+    <!--gets the current slope (m1) and the current y-intercept (b1)-->
+    <!--then, using these values, calculates y values from x values ranging from 0 to 10-->
+    <form font-size = "300px" oninput="b.value = parseFloat(b1.value); 
+    m.value=parseFloat(m1.value); 
+    x1.value = parseFloat(m1.value) * 0 + parseFloat(b1.value); 
+    x2.value = parseFloat(m1.value) * 1 + parseFloat(b1.value);
+    x3.value = parseFloat(m1.value) * 2 + parseFloat(b1.value); 
+    x4.value = parseFloat(m1.value) * 3 + parseFloat(b1.value); 
+    x5.value = parseFloat(m1.value) * 4 + parseFloat(b1.value); 
+    x6.value = parseFloat(m1.value) * 5 + parseFloat(b1.value); 
+    x7.value = parseFloat(m1.value) * 6 + parseFloat(b1.value); 
+    x8.value = parseFloat(m1.value) * 7 + parseFloat(b1.value); 
+    x9.value = parseFloat(m1.value) * 8 + parseFloat(b1.value);
+    x10.value = parseFloat(m1.value) * 9 + parseFloat(b1.value); 
+    x11.value = parseFloat(m1.value) * 10 + parseFloat(b1.value)">  
+      
+      <!--outputs the y = mx+b equation with m and b being updated constantly-->
+      <h2  style = "position:absolute; margin-left: 20vw; margin-top: -500px;"> y = <output style = "color:red" name="m"></output> x + <output style = "color:blue" name="b"></output> </h2>
+      <!--outputs the table of x and y values that are constantly updated-->
+      <!--values of x from 0 to 10-->
+      <table style="position: absolute; margin-left: 45vw; margin-top: -180px; background-color: white; " >
+        <tr>
+          <th>x</th>
+          <th>y</th>
+          
+        </tr>
+        <tr>
+          <td>0.00</td>
+          <td><output name = "x1"></output></td>
+          
+        </tr>
+        <tr>
+          <td>1.00</td>
+          <td><output name = "x2"></output></td>
+          
+        </tr>
+        <tr>
+          <td>2.00</td>
+          <td><output name = "x3"></output></td>
+          
+        </tr>
+        <tr>
+          <td>3.00</td>
+          <td><output name = "x4"></output></td>
+          
+        </tr>
+
+        <tr>
+          <td>4.00</td>
+          <td><output name = "x5"></output></td>
+          
+        </tr>
+        <tr>
+          <td>5.00</td>
+          <td><output name = "x6"></output></td>
+          
+        </tr>
+        <tr>
+          <td>6.00</td>
+          <td><output name = "x7"></output></td>
+          
+        </tr>
+        <tr>
+          <td>7.00</td>
+          <td><output name = "x8"></output></td>
+          
+        </tr>
+
+        <tr>
+          <td>8.00</td>
+          <td><output name = "x9"></output></td>
+          
+        </tr>
+
+        <tr>
+          <td>9.00</td>
+          <td><output name = "x10"></output></td>
+          
+        </tr>
+
+        <tr>
+          <td>10.00</td>
+          <td><output name = "x11"></output></td>
+          
+        </tr>
+      </table>
+
+    <!--represents the sliders-->
+    <!--title for slope slider-->
+    <label style="position: absolute; margin-left: 45vw; margin-top: -440px; color: red" >slope (m)</label> <br /><br />
+    <!--slope slider-->
+    <input style="position: absolute;margin-left: 45vw; margin-top: -440px; background-color:red" id="rangeInputM" type="range" min="-10" max="10" step = "0.25" oninput="m1.value=rangeInputM.value" />
+    <!--text field showing numeric representation of slope slider-->
+    <input style="position: absolute; margin-left: 55vw; margin-top: -445px;"id="m1" type="number" value="1" min="-200" max="200"  disabled/>
+    <br></br>
+    <!--title for y int slider-->
+    <label style="position: absolute;margin-left: 45vw; margin-top: -400px; color: blue">y-intercept (b)</label> <br /><br />
+    <!--y-int slider-->
+    <input style="position: absolute;margin-left: 45vw; margin-top: -400px" id="rangeInputB" type="range" min="-10" max="10" step = "0.25" oninput="b1.value=rangeInputB.value" />
+    <!--text field showing numeric representation of y int slider-->
+    <input style="position: absolute; margin-left: 55vw; margin-top: -405px;"id="b1" type="number" value="1" min="-200" max="200" disabled/>
+
+    </form>
+    <!--creates the graph canvas open which we will show our line-->
+    <canvas id="Graph" style="position: absolute; background:aliceblue;border:5px; border-radius:25px; solid: #0a0303; margin-left: 5vw; margin-top: -600px;" width="600%" height="600vw" ></canvas>
+    
+      <script>
+      // draws the base graph
+      function Graph(config) {
+        // sets the properties of the Graph
+        this.canvas = document.getElementById(config.canvasId);
+        // sets the min and max y and y
+        this.minX = config.minX;
+        this.minY = config.minY;
+        this.maxX = config.maxX;
+        this.maxY = config.maxY;
+        this.unitsPerTick = config.unitsPerTick;
+
+        // how the graph looks, with color, type, gap between ticks
+        this.axisColor = '#aaa';
+        this.font = '8pt Calibri';
+        this.tickSize = 20;
+
+        // relationships/calculations
+        this.context = this.canvas.getContext('2d');
+        // get difference in x and y
+        this.rangeX = this.maxX - this.minX;
+        this.rangeY = this.maxY - this.minY;
+
+        this.unitX = this.canvas.width / this.rangeX;
+        this.unitY = this.canvas.height / this.rangeY;
+        // center points for plotting
+        this.centerY = Math.round(Math.abs(this.minY / this.rangeY) * this.canvas.height);
+        this.centerX = Math.round(Math.abs(this.maxX / this.rangeX) * this.canvas.width);
+
+        // scale graph accordingly
+        this.iteration = (this.maxX - this.minX) / 1000;
+        this.scaleX = this.canvas.width / this.rangeX;
+        this.scaleY = this.canvas.height / this.rangeY;
+
+        // draw x and y axis
+        // clear axis so that we can animate line being drawn each time
+        this.context.clearRect(0,0,this.canvas.width,this.canvas.height)
+        this.drawXAxis();
+        this.drawYAxis();
+      }
+
+      // draws the x axis of the graph
+      Graph.prototype.drawXAxis = function() {
+        // start drawing
+        var context = this.context;
+        context.save();
+        context.beginPath();
+        context.moveTo(0, this.centerY);
+        context.lineTo(this.canvas.width, this.centerY);
+        context.strokeStyle = this.axisColor;
+        context.lineWidth = 2;
+        context.stroke();
+
+        // draw tick marks
+        // use prior calculations to draw tick marks
+        var xPosIncrement = this.unitsPerTick * this.unitX;
+        var xPos, unit;
+        context.font = this.font;
+        context.textAlign = 'center';
+        context.textBaseline = 'top';
+
+        // draw negative x value tick marks
+        xPos = this.centerX - xPosIncrement;
+        unit = -1 * this.unitsPerTick;
+        // while loop to draw all ticks
+        while(xPos > 0) {
+          context.moveTo(xPos, this.centerY - this.tickSize / 2);
+          context.lineTo(xPos, this.centerY + this.tickSize / 2);
+          context.stroke();
+          context.fillText(unit, xPos, this.centerY + this.tickSize / 2 + 3);
+          unit -= this.unitsPerTick;
+          xPos = Math.round(xPos - xPosIncrement);
+        }
+
+        // draw positive x value tick marks
+        xPos = this.centerX + xPosIncrement;
+        unit = this.unitsPerTick;
+        // while loop to draw all ticks
+        while(xPos < this.canvas.width) {
+          context.moveTo(xPos, this.centerY - this.tickSize / 2);
+          context.lineTo(xPos, this.centerY + this.tickSize / 2);
+          context.stroke();
+          context.fillText(unit, xPos, this.centerY + this.tickSize / 2 + 3);
+          unit += this.unitsPerTick;
+          xPos = Math.round(xPos + xPosIncrement);
+        }
+        context.restore();
+      };
+
+      // draws the y axis of the graph
+      Graph.prototype.drawYAxis = function() {
+        var context = this.context;
+        context.save();
+        context.beginPath();
+        context.moveTo(this.centerX, 0);
+        context.lineTo(this.centerX, this.canvas.height);
+        context.strokeStyle = this.axisColor;
+        context.lineWidth = 2;
+        context.stroke();
+
+        // use prior calculations to draw tick marks
+        var yPosIncrement = this.unitsPerTick * this.unitY;
+        var yPos, unit;
+        context.font = this.font;
+        context.textAlign = 'right';
+        context.textBaseline = 'middle';
+
+        // draw positive y value tick marks
+        yPos = this.centerY - yPosIncrement;
+        unit = this.unitsPerTick;
+        // while loop to draw all ticks
+        while(yPos > 0) {
+          context.moveTo(this.centerX - this.tickSize / 2, yPos);
+          context.lineTo(this.centerX + this.tickSize / 2, yPos);
+          context.stroke();
+          context.fillText(unit, this.centerX - this.tickSize / 2 - 3, yPos);
+          unit += this.unitsPerTick;
+          yPos = Math.round(yPos - yPosIncrement);
+        }
+
+        // draw negative y value tick marks
+        yPos = this.centerY + yPosIncrement;
+        unit = -1 * this.unitsPerTick;
+        // while loop to draw all ticks
+        while(yPos < this.canvas.height) {
+          context.moveTo(this.centerX - this.tickSize / 2, yPos);
+          context.lineTo(this.centerX + this.tickSize / 2, yPos);
+          context.stroke();
+          context.fillText(unit, this.centerX - this.tickSize / 2 - 3, yPos);
+          unit -= this.unitsPerTick;
+          yPos = Math.round(yPos + yPosIncrement);
+        }
+        context.restore();
+      };
+
+       // draws the actual line y = mx+b on graph
+       // takes in slope, yintercept, color, and thickness parameters
+       Graph.prototype.drawLine = function(slope, yintercept, color, thickness) {
+
+        var context = this.context;
+
+        // draw x and y axis
+        this.drawXAxis();
+        this.drawYAxis();
+
+        // uses equation to move to specific point
+        context.save();
+        context.save();
+        this.transformContext();
+        context.beginPath();
+        context.moveTo(this.minX, slope * this.minX + yintercept);
+
+        // iterate through each x value drawn on graph and draw a line based on slope int formula
+        for(var x = this.minX + this.iteration; x <= this.maxX; x += this.iteration) {
+          context.lineTo(x, slope * x + yintercept);
+        }
+        // finish drawing
+        context.restore();
+        context.lineJoin = 'round';
+        context.lineWidth = thickness;
+        context.strokeStyle = color;
+        context.stroke();
+        context.restore();
+      };
+
+      Graph.prototype.transformContext = function() {
+        // we want to start at canvas center and scale properly
+        var context = this.context;
+        this.context.translate(this.centerX, this.centerY);
+        context.scale(this.scaleX, -this.scaleY);
+      };
+
+      
+    </script>
+    
+    <script>
+      // jQuery time!
+      // when document is loaded, create graph and draw base line
+     $(document).ready(function(){
+        // create graph
+        var myGraph = new Graph({
+         canvasId: 'Graph',
+         minX: -10,
+         minY: -10,
+         maxX: 10,
+         maxY: 10,
+         unitsPerTick: 1
+        });    
+        // draw default line
+        myGraph.drawLine(1, 1, 'black', 3);
+        
+      // whenever user inputs in one of the sliders, either slope or yint, update
+      // the line
+      $("#m1, #b1, #rangeInputM, #rangeInputB").on("input",function(){
+        
+        var m1,b1 = 0;
+        // get the slope and yint
+        m1 = parseFloat($("#m1").val());
+        b1 = parseFloat($("#b1").val());
+
+        // create new graph since we will erase previous graph
+        // each time we input
+        var myGraph = new Graph({
+         canvasId: 'Graph',
+         minX: -10,
+         minY: -10,
+         maxX: 10,
+         maxY: 10,
+         unitsPerTick: 1
+        });    
+        // optional item I included just for more fun
+        // so the line will change colors as it moves
+        // in future, I would add a toggle to turn this on
+        // or off, if some people do not want it  
+        var letters = '0123456789ABCDEF';
+        var color = '#';
+        // random color for rainbow effect
+        for (var i = 0; i < 6; i++) {
+          color += letters[Math.floor(Math.random() * 16)];
+        }
+        // draw the line
+        myGraph.drawLine(m1, b1, color, 3);
+      });
+     
+     });
+     
+     </script>
+    
+  </body>
+
+</html>
